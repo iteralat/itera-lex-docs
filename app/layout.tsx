@@ -17,47 +17,93 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://docs.iteralex.com'),
   title: {
-    default: 'ITERA LEX Docs',
-    template: '%s — ITERA LEX Docs',
+    default: 'ÍTERA Lex — Documentación',
+    template: '%s — ÍTERA Lex Docs',
   },
   description:
-    'Documentacion de ITERA LEX — Software de gestion juridica para abogados y estudios legales.',
+    'Documentación de ÍTERA Lex — Sistema de gestión jurídica para estudios y abogados argentinos. Guías, glosario y recursos.',
   icons: {
     icon: '/logo-corbata.png',
     apple: '/logo-corbata.png',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    siteName: 'ÍTERA Lex Docs',
+    images: [{ url: '/og-image.png', width: 1200, height: 628 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
   },
 }
 
 const logo = (
   <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
     <img
-      src="/itera-lex-logo.png"
-      alt="ITERA LEX"
+      src="/itera-lex-logo-dark.png"
+      alt="ÍTERA Lex"
       style={{ height: '28px' }}
+      className="logo-light"
     />
-    <span style={{ fontWeight: 600, fontSize: '14px', opacity: 0.6 }}>
+    <img
+      src="/itera-lex-logo.png"
+      alt="ÍTERA Lex"
+      style={{ height: '28px' }}
+      className="logo-dark"
+    />
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize: '13px',
+        opacity: 0.5,
+        letterSpacing: '0.05em',
+        textTransform: 'uppercase' as const,
+      }}
+    >
       Docs
     </span>
   </span>
 )
 
-const navbar = (
-  <Navbar
-    logo={logo}
-    projectLink="https://github.com/iteralex"
-  />
-)
+const navbar = <Navbar logo={logo} projectLink="https://iteralex.com" />
 
 const footer = (
   <Footer>
-    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', flexWrap: 'wrap', gap: '8px' }}>
-      <span>
-        {new Date().getFullYear()} © ITERA LEX. Todos los derechos reservados.
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        flexWrap: 'wrap',
+        gap: '8px',
+        fontSize: '14px',
+      }}
+    >
+      <span style={{ opacity: 0.6 }}>
+        {new Date().getFullYear()} © ÍTERA Lex
       </span>
-      <a href="https://iteralex.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-        iteralex.com
-      </a>
+      <div style={{ display: 'flex', gap: '16px' }}>
+        <a
+          href="https://iteralex.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ opacity: 0.6, textDecoration: 'none' }}
+        >
+          iteralex.com
+        </a>
+        <a
+          href="https://app.iteralex.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ opacity: 0.6, textDecoration: 'none' }}
+        >
+          Acceder al sistema
+        </a>
+      </div>
     </div>
   </Footer>
 )
@@ -79,11 +125,11 @@ export default async function RootLayout({
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/iteralex/itera-lex-docs/tree/main"
+          docsRepositoryBase="https://github.com/iteralat/itera-lex-docs/tree/master"
           footer={footer}
-          editLink="Editar esta pagina"
+          editLink="Editar esta página"
           sidebar={{ defaultMenuCollapseLevel: 1 }}
-          toc={{ title: 'En esta pagina' }}
+          toc={{ title: 'En esta página' }}
         >
           {children}
         </Layout>
