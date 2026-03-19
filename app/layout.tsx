@@ -1,5 +1,5 @@
-import { Footer, Layout, Navbar } from 'nextra-theme-docs'
-import { Head } from 'nextra/components'
+import { Footer, Layout, Navbar, LastUpdated } from 'nextra-theme-docs'
+import { Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -41,66 +41,34 @@ export const metadata: Metadata = {
 }
 
 const logo = (
-  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+  <span className="logo-container">
     <img
       src="/itera-lex-logo-dark.png"
       alt="ÍTERA Lex"
-      style={{ height: '28px' }}
       className="logo-light"
     />
     <img
       src="/itera-lex-logo.png"
       alt="ÍTERA Lex"
-      style={{ height: '28px' }}
       className="logo-dark"
     />
-    <span
-      style={{
-        fontWeight: 600,
-        fontSize: '13px',
-        opacity: 0.5,
-        letterSpacing: '0.05em',
-        textTransform: 'uppercase' as const,
-      }}
-    >
-      Docs
-    </span>
+    <span className="logo-badge">Docs</span>
   </span>
 )
 
-const navbar = <Navbar logo={logo} projectLink="https://iteralex.com" />
+const navbar = <Navbar logo={logo} />
 
 const footer = (
   <Footer>
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        flexWrap: 'wrap',
-        gap: '8px',
-        fontSize: '14px',
-      }}
-    >
-      <span style={{ opacity: 0.6 }}>
+    <div className="docs-footer">
+      <span className="docs-footer-copy">
         {new Date().getFullYear()} © ÍTERA Lex
       </span>
-      <div style={{ display: 'flex', gap: '16px' }}>
-        <a
-          href="https://iteralex.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ opacity: 0.6, textDecoration: 'none' }}
-        >
+      <div className="docs-footer-links">
+        <a href="https://iteralex.com" target="_blank" rel="noopener noreferrer">
           iteralex.com
         </a>
-        <a
-          href="https://app.iteralex.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ opacity: 0.6, textDecoration: 'none' }}
-        >
+        <a href="https://app.iteralex.com" target="_blank" rel="noopener noreferrer">
           Acceder al sistema
         </a>
       </div>
@@ -127,9 +95,13 @@ export default async function RootLayout({
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/iteralat/itera-lex-docs/tree/master"
           footer={footer}
-          editLink="Editar esta página"
+          editLink={null}
+          feedback={{ content: null }}
+          lastUpdated={<LastUpdated locale="es-AR">Última actualización</LastUpdated>}
+          search={<Search placeholder="Buscar..." />}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           toc={{ title: 'En esta página' }}
+          themeSwitch={{ dark: 'Oscuro', light: 'Claro' }}
         >
           {children}
         </Layout>
