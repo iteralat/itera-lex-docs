@@ -1,12 +1,13 @@
 @import 'tailwindcss';
 
-/* ÍTERA LEX brand colors — orange primary */
+/* ÍTERA LEX — brand overrides (must be outside @layer to win specificity) */
 :root {
   --nextra-primary-hue: 27deg;
   --nextra-primary-saturation: 89%;
   --nextra-primary-lightness: 48%;
 }
 
+:root.dark,
 .dark {
   --nextra-primary-hue: 27deg;
   --nextra-primary-saturation: 89%;
@@ -23,7 +24,7 @@ pre {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-/* Logo: show correct version per theme */
+/* Logo: correct version per theme */
 .logo-container {
   display: flex;
   align-items: center;
@@ -45,12 +46,16 @@ html.dark .logo-light {
 html.dark .logo-dark {
   display: block;
 }
+
+/* "Docs" badge — below logo, smaller */
 .logo-badge {
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 11px;
   opacity: 0.4;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  align-self: flex-end;
+  margin-bottom: 1px;
 }
 
 /* Footer */
@@ -77,4 +82,9 @@ html.dark .logo-dark {
 }
 .docs-footer-links a:hover {
   opacity: 0.8;
+}
+
+/* Hide "Copy page" button (English, not translatable) */
+[aria-label="Copy page"] {
+  display: none !important;
 }

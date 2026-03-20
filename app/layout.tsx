@@ -65,10 +65,18 @@ const footer = (
         {new Date().getFullYear()} © ÍTERA Lex
       </span>
       <div className="docs-footer-links">
-        <a href="https://iteralex.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://iteralex.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           iteralex.com
         </a>
-        <a href="https://app.iteralex.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://app.iteralex.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Acceder al sistema
         </a>
       </div>
@@ -93,11 +101,12 @@ export default async function RootLayout({
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/iteralat/itera-lex-docs/tree/master"
           footer={footer}
           editLink={null}
           feedback={{ content: null }}
-          lastUpdated={<LastUpdated locale="es-AR">Última actualización</LastUpdated>}
+          lastUpdated={
+            <LastUpdated locale="es-AR">Última actualización</LastUpdated>
+          }
           search={<Search placeholder="Buscar..." />}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           toc={{ title: 'En esta página' }}

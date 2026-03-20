@@ -5,38 +5,61 @@ description: "Guía paso a paso para integrar Google Drive con ÍTERA Lex y vinc
 
 ## Para qué conectar Google Drive
 
-La integración permite vincular documentos de Google Drive a tus causas en ÍTERA Lex, sin duplicar archivos ni perder la organización.
+Si ya tenés documentos en Google Drive (demandas, poderes, cédulas, escritos), esta integración los vincula a las causas en ÍTERA Lex sin duplicar archivos ni perder la organización que ya tenés. Y los documentos nuevos que subas desde el sistema se guardan automáticamente en tu Drive.
 
 ## Paso 1: Acceder a la configuración
 
 {/* TODO: Screenshot — sección de integraciones */}
 
-Desde la configuración de tu estudio, buscá la sección de integraciones.
+Desde la [configuración de tu estudio](/guias-de-uso/configurar-estudio), entrá a la sección de **Integraciones**.
 
 ## Paso 2: Autorizar la conexión
 
 {/* TODO: Screenshot — botón de conectar Google Drive y pantalla de autorización */}
 
-Hacé clic en "Conectar Google Drive" y autorizá el acceso desde tu cuenta de Google.
+Hacé clic en **"Conectar Google Drive"** y autorizá el acceso desde tu cuenta de Google.
+
+El sistema pide permisos para leer y crear archivos en la carpeta que elijas. No accede al resto de tu Drive.
+
+> [!NOTE]
+> Cada miembro del equipo puede conectar su propia cuenta de Google. Los documentos quedan vinculados a la causa, sin importar quién los subió.
 
 ## Paso 3: Seleccionar carpeta base
 
 {/* TODO: Screenshot — selector de carpeta base en Drive */}
 
-Elegí la carpeta de Google Drive donde ÍTERA Lex va a organizar los documentos de tus causas. Se recomienda crear una carpeta específica (ej: "ÍTERA Lex - Documentos").
+Elegí la carpeta de Google Drive donde ÍTERA Lex va a organizar los documentos. Recomendamos crear una carpeta específica (ej: "ÍTERA Lex - Documentos") para mantener todo separado del resto de tu Drive.
+
+Dentro de esa carpeta, el sistema crea automáticamente subcarpetas por causa. No tenés que organizar nada a mano.
 
 ## Paso 4: Vincular documentos a causas
 
 {/* TODO: Screenshot — adjuntar documento de Drive a una causa */}
 
-Desde la ficha de cualquier causa, podés vincular documentos existentes en tu Drive o subir documentos nuevos que se guardan automáticamente en la carpeta correspondiente.
+Desde la ficha de cualquier causa, podés:
+
+- **Vincular documentos existentes** — seleccionás un archivo que ya está en tu Drive y queda asociado a la causa
+- **Subir documentos nuevos** — el archivo se guarda en la carpeta de la causa en Drive y queda vinculado automáticamente
+
+Así cuando necesites buscar un escrito o una resolución, lo encontrás desde la ficha de la causa sin tener que navegar carpetas.
 
 ## Paso 5: Verificar la estructura
 
 {/* TODO: Screenshot — estructura de carpetas creada por la integración */}
 
-ÍTERA Lex organiza los documentos por causa dentro de tu Drive, manteniendo una estructura clara y consistente.
+Entrá a tu Google Drive y verificá que se haya creado la estructura. Vas a ver algo como:
+
+```
+ÍTERA Lex - Documentos/
+├── García c/ López - Exp 12345-2026/
+│   ├── Demanda.pdf
+│   └── Poder general.pdf
+├── Pérez c/ ACME SA - Exp 67890-2025/
+│   └── Contestación de demanda.pdf
+```
+
+Esta estructura se mantiene sincronizada automáticamente.
 
 ---
 
-Si querés ideas para organizar mejor tu Drive, en el blog escribimos sobre [Google Drive para abogados](https://iteralex.com/blog/google-drive-abogados).
+Si querés ideas para organizar mejor tus documentos, en el blog escribimos sobre [Google Drive para abogados](https://iteralex.com/blog/google-drive-abogados).

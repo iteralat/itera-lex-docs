@@ -5,42 +5,57 @@ description: "Guía paso a paso para integrar Google Calendar con ÍTERA Lex y s
 
 ## Para qué conectar Google Calendar
 
-La integración permite que los eventos de tus causas (audiencias, plazos, vencimientos) aparezcan automáticamente en tu Google Calendar, sin cargarlos a mano.
+Si usás Google Calendar para organizar tu día (y la mayoría de los abogados lo usan), esta integración te ahorra cargar los mismos eventos dos veces. Las audiencias, vencimientos y plazos que cargás en ÍTERA Lex aparecen automáticamente en tu calendario de Google, y viceversa.
 
 ## Paso 1: Acceder a la configuración
 
 {/* TODO: Screenshot — sección de integraciones en configuración */}
 
-Desde la configuración de tu estudio, buscá la sección de integraciones.
+Desde la [configuración de tu estudio](/guias-de-uso/configurar-estudio), buscá la sección de **Integraciones**. Ahí vas a ver las opciones de Google Calendar y Google Drive.
 
 ## Paso 2: Autorizar la conexión
 
 {/* TODO: Screenshot — botón de conectar Google Calendar y pantalla de autorización */}
 
-Hacé clic en "Conectar Google Calendar". Se va a abrir una ventana de Google pidiendo autorización para acceder a tu calendario.
+Hacé clic en **"Conectar Google Calendar"**. Se abre una ventana de Google pidiendo autorización para acceder a tu calendario.
+
+El sistema pide permisos para leer y escribir eventos — es necesario para que la sincronización funcione en ambas direcciones. ÍTERA Lex no accede a nada más de tu cuenta de Google.
+
+> [!NOTE]
+> La autorización se hace una sola vez. Si después querés revocarla, podés hacerlo desde la misma sección de integraciones o desde la configuración de tu cuenta de Google.
 
 ## Paso 3: Seleccionar el calendario
 
 {/* TODO: Screenshot — selector de calendario destino */}
 
-Elegí en qué calendario querés que aparezcan los eventos de ÍTERA Lex. Podés usar tu calendario principal o crear uno específico.
+Elegí en qué calendario querés que aparezcan los eventos de ÍTERA Lex:
+
+- **Tu calendario principal** — si querés ver todo junto con tus otros compromisos
+- **Un calendario nuevo** — si preferís tener los eventos jurídicos separados y poder ocultarlos cuando no los necesitás
+
+Si no estás seguro, el calendario principal suele ser la opción más práctica.
 
 ## Paso 4: Configurar la sincronización
 
 {/* TODO: Screenshot — opciones de sincronización (qué eventos sincronizar) */}
 
 Definí qué tipo de eventos querés sincronizar:
-- Audiencias
-- Vencimientos de plazos
-- Tareas con fecha
-- Todos los anteriores
+
+- **Audiencias** — fechas de audiencia cargadas en las causas
+- **Vencimientos de plazos** — traslados, contestaciones, todo lo que tenga fecha límite
+- **Tareas con fecha** — tareas asignadas con vencimiento
+- **Todos los anteriores** — la opción más completa
+
+ÍTERA Lex clasifica automáticamente los eventos que llegan de Google Calendar (ej: una reunión de trabajo vs. una audiencia). Así no se mezcla todo.
 
 ## Paso 5: Verificar
 
 {/* TODO: Screenshot — evento sincronizado visible en Google Calendar */}
 
-Una vez conectado, los próximos eventos se van a sincronizar automáticamente. Verificá en tu Google Calendar que aparezcan correctamente.
+Una vez conectado, los próximos eventos se sincronizan automáticamente. Entrá a tu Google Calendar y verificá que aparezcan.
+
+Si tenés eventos preexistentes en causas, también se sincronizan (puede tardar unos minutos la primera vez).
 
 ---
 
-Si querés entender mejor cómo usar Google Calendar en tu práctica profesional, en el blog escribimos sobre [Google Calendar para abogados](https://iteralex.com/blog/google-calendar-abogados).
+Si querés sacarle más provecho a Google Calendar en tu práctica profesional, en el blog escribimos sobre [Google Calendar para abogados](https://iteralex.com/blog/google-calendar-abogados).
