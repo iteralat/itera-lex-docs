@@ -1,6 +1,6 @@
 export default {
   'primeros-pasos': 'Primeros pasos',
-  'crear-cuenta': 'Crear una cuenta',
+  'crear-cuenta': 'Obtener acceso',
   'primer-cliente': 'Cargar tu primer cliente',
   'primera-causa': 'Cargar tu primera causa',
 }
