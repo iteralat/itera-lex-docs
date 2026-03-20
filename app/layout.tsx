@@ -3,6 +3,8 @@ import { Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { ThemeToggle } from './components/theme-toggle'
+import { ScrollToTop } from './components/scroll-to-top'
 import 'nextra-theme-docs/style.css'
 import './globals.css'
 
@@ -25,8 +27,11 @@ export const metadata: Metadata = {
   description:
     'Documentación de ÍTERA Lex — Sistema de gestión jurídica para estudios y abogados argentinos. Guías, glosario y recursos.',
   icons: {
-    icon: '/logo-corbata.png',
+    icon: '/favicon.ico',
     apple: '/logo-corbata.png',
+  },
+  alternates: {
+    canonical: 'https://docs.iteralex.com',
   },
   openGraph: {
     type: 'website',
@@ -56,7 +61,11 @@ const logo = (
   </span>
 )
 
-const navbar = <Navbar logo={logo} />
+const navbar = (
+  <Navbar logo={logo}>
+    <ThemeToggle />
+  </Navbar>
+)
 
 const footer = (
   <Footer>
@@ -98,6 +107,32 @@ export default async function RootLayout({
     >
       <Head />
       <body>
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'ÍTERA Lex',
+                url: 'https://iteralex.com',
+                logo: 'https://docs.iteralex.com/logo-corbata.png',
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'ÍTERA Lex Docs',
+                url: 'https://docs.iteralex.com',
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: 'https://docs.iteralex.com?q={search_term_string}',
+                  'query-input': 'required name=search_term_string',
+                },
+              },
+            ]),
+          }}
+        />
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
@@ -114,6 +149,7 @@ export default async function RootLayout({
         >
           {children}
         </Layout>
+        <ScrollToTop />
       </body>
     </html>
   )
