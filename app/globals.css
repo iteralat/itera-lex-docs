@@ -1,6 +1,11 @@
 @import 'tailwindcss';
 
-/* ÍTERA LEX — brand overrides (must be outside @layer to win specificity) */
+/* ── Smooth scroll ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── ÍTERA LEX — brand overrides ── */
 :root {
   --nextra-primary-hue: 27deg;
   --nextra-primary-saturation: 89%;
@@ -14,7 +19,7 @@
   --nextra-primary-lightness: 55%;
 }
 
-/* Geist font family */
+/* ── Geist font family ── */
 body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
@@ -24,7 +29,205 @@ pre {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-/* Logo: correct version per theme */
+/* ── Fade-in animation ── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main content area fade-in on page load */
+article {
+  animation: fade-in-up 0.4s ease-out both;
+}
+
+/* TOC fade-in with delay */
+nav[aria-label="table of contents"] {
+  animation: fade-in-up 0.4s ease-out 0.1s both;
+}
+
+/* Breadcrumb fade-in */
+nav[aria-label="Breadcrumb"] {
+  animation: fade-in-up 0.3s ease-out both;
+}
+
+/* Page navigation links (prev/next) */
+.nextra-navigation {
+  animation: fade-in-up 0.3s ease-out 0.15s both;
+}
+
+/* ── Sidebar menu transitions ── */
+/* Smooth expand/collapse for sidebar folders */
+aside ul {
+  transition: opacity 0.2s ease;
+}
+
+aside li > ul {
+  animation: fade-in-up 0.25s ease-out both;
+}
+
+/* Sidebar active item subtle highlight transition */
+aside a {
+  transition: color 0.15s ease, background-color 0.15s ease, padding-left 0.15s ease;
+}
+
+/* ── Navbar: search grows to fill center + theme switch ── */
+.nextra-search {
+  flex-grow: 1 !important;
+  max-width: 480px;
+}
+.nextra-search input {
+  width: 100% !important;
+}
+
+/* Theme toggle in navbar */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: hsl(0 0% 40%);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.theme-toggle:hover {
+  background: hsl(0 0% 0% / 0.06);
+  color: hsl(0 0% 20%);
+}
+.dark .theme-toggle {
+  color: hsl(0 0% 65%);
+}
+.dark .theme-toggle:hover {
+  background: hsl(0 0% 100% / 0.08);
+  color: hsl(0 0% 85%);
+}
+.theme-toggle-placeholder {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Hide sidebar footer entirely (theme switch moved to navbar) */
+.nextra-sidebar-footer {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+/* ── Link hover transitions ── */
+article a {
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+article a:hover {
+  opacity: 0.85;
+}
+
+/* ── Footer: reduce whitespace ── */
+footer {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.docs-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+}
+.docs-footer-copy {
+  opacity: 0.5;
+}
+.docs-footer-links {
+  display: flex;
+  gap: 16px;
+}
+.docs-footer-links a {
+  opacity: 0.5;
+  text-decoration: none;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+.docs-footer-links a:hover {
+  opacity: 0.8;
+}
+
+/* ── Scroll to top button ── */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.3);
+  background: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.1);
+  color: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness));
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.15s ease;
+  backdrop-filter: blur(8px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.2);
+  border-color: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.5);
+}
+
+/* Dark mode: slightly brighter background */
+.dark .scroll-to-top {
+  background: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.15);
+}
+.dark .scroll-to-top:hover {
+  background: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.25);
+}
+
+/* ── Code blocks: subtle entrance ── */
+article pre {
+  transition: box-shadow 0.2s ease;
+}
+article pre:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+.dark article pre:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Callouts (blockquotes / nextra callouts): subtle entrance ── */
+article .nextra-callout,
+article blockquote {
+  animation: fade-in-up 0.35s ease-out 0.05s both;
+}
+
+/* ── Logo ── */
 .logo-container {
   display: flex;
   align-items: center;
@@ -47,7 +250,6 @@ html.dark .logo-dark {
   display: block;
 }
 
-/* "Docs" badge — below logo, smaller */
 .logo-badge {
   font-weight: 500;
   font-size: 11px;
@@ -58,33 +260,40 @@ html.dark .logo-dark {
   margin-bottom: 1px;
 }
 
-/* Footer */
-.docs-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 14px;
-}
-.docs-footer-copy {
-  opacity: 0.5;
-}
-.docs-footer-links {
-  display: flex;
-  gap: 16px;
-}
-.docs-footer-links a {
-  opacity: 0.5;
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
-.docs-footer-links a:hover {
-  opacity: 0.8;
-}
-
-/* Hide "Copy page" button (English, not translatable) */
+/* ── Hide "Copy page" button (English, not translatable) ── */
 [aria-label="Copy page"] {
   display: none !important;
+}
+
+/* ── Reduce gap between content and prev/next nav ── */
+article + nav {
+  margin-top: 2rem !important;
+}
+
+/* ── Prev/Next navigation links hover ── */
+a[href][class*="nextra-nav"] {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── Tables: smooth hover ── */
+article table tr {
+  transition: background-color 0.15s ease;
+}
+
+/* ── Headings: smooth scroll offset ── */
+article h1,
+article h2,
+article h3,
+article h4 {
+  scroll-margin-top: 5rem;
+}
+
+/* ── Responsive: scroll-to-top button position on mobile ── */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 36px;
+    height: 36px;
+  }
 }
