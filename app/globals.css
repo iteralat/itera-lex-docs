@@ -153,19 +153,19 @@ footer {
   font-size: 14px;
 }
 .docs-footer-copy {
-  opacity: 0.5;
+  color: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.6);
 }
 .docs-footer-links {
   display: flex;
   gap: 16px;
 }
 .docs-footer-links a {
-  opacity: 0.5;
+  color: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness) / 0.6);
   text-decoration: none;
   transition: opacity 0.15s ease, color 0.15s ease;
 }
 .docs-footer-links a:hover {
-  opacity: 0.8;
+  color: hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness));
 }
 
 /* ── Scroll to top button ── */
@@ -258,11 +258,6 @@ html.dark .logo-dark {
   text-transform: uppercase;
   align-self: flex-end;
   margin-bottom: 1px;
-}
-
-/* ── Hide "Copy page" button (English, not translatable) ── */
-[aria-label="Copy page"] {
-  display: none !important;
 }
 
 /* ── Reduce gap between content and prev/next nav ── */

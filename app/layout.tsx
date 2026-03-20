@@ -137,6 +137,7 @@ export default async function RootLayout({
           navbar={navbar}
           pageMap={await getPageMap()}
           footer={footer}
+          copyPageButton={false}
           editLink={null}
           feedback={{ content: null }}
           lastUpdated={
