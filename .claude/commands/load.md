@@ -7,25 +7,27 @@ model: 'sonnet'
 
 ## Pasos
 
-1. Leer `.planning/STATE.md` (único archivo obligatorio)
-2. Presentar resumen conciso (max 15 líneas):
+1. Leer `.planning/STATE.md` (unico archivo obligatorio)
+2. Presentar resumen conciso (max 15 lineas):
 
 ```markdown
 ## Sesion Cargada
 
-**Última sesión**: [fecha] — [qué se hizo en 1 línea]
+**Ultima sesion**: [fecha] — [que se hizo en 1 linea]
 
-**Páginas con contenido**: [N de M total]
+**Estado modulos**: [solo si hay algo incompleto o bloqueado]
 
-**Pendiente**: [bullets de Próxima Acción del STATE.md]
+**Deuda tecnica pendiente**: [bullets de Proxima Accion del STATE.md]
 
 ---
 
-¿Continuamos con esto o tenés algo nuevo para arrancar?
+Continuamos con esto o tenes algo nuevo para arrancar?
 ```
 
 ## Reglas
 
-- NO leer código fuente ni archivos .mdx automáticamente
-- NO asumir qué quiere hacer el usuario
+- NO leer GUARDRAILS.md automaticamente (esta en CLAUDE.md project instructions)
+- NO leer CHANGELOG.md
+- NO leer codigo fuente
+- NO asumir que quiere hacer el usuario
 - PREGUNTAR antes de actuar

@@ -194,3 +194,103 @@ Las 5 del hero actual son vistas panorámicas (dashboard, calendario, causas, cl
 | **Total** | **79** | **~68 únicas** | **~11 reutilizables** |
 
 Varias capturas sirven para múltiples destinos (ej: #13 ficha de causa se usa en docs y blog, #27 PDF preview se usa en docs y blog). Las únicas reales son ~55-60.
+
+---
+
+## Estado de captura (2026-03-20)
+
+**57 screenshots sacadas** con script Playwright (`itera-lex/scripts/take-screenshots.ts`) → guardadas en `screenshots-claude/`.
+
+Script: `cd itera-lex && npx tsx scripts/take-screenshots.ts` (requiere `playwright` como devDep y `npx playwright install chromium`). Viewport 1920x1080, dark mode, sin barra del navegador.
+
+### Sacadas ✓
+
+| # del doc | Archivo | Notas |
+|-----------|---------|-------|
+| 1 | `login-pantalla.png` | |
+| 5 | `clientes-lista.png` | |
+| 6 | `clientes-form-nuevo.png` | |
+| 7 | `clientes-ficha.png` | |
+| 8 | `causas-lista.png` | |
+| 9 | `causas-form-caratula.png` | |
+| 10 | `causas-form-selector-cliente.png` | |
+| 11 | `causas-form-selector-abogado.png` | |
+| 12 | `causas-form-honorarios.png` | |
+| 13 | `causas-ficha.png` | |
+| 14 | `causas-movimientos.png` | |
+| 15 | `movimientos-form-nuevo.png` | |
+| 16 | `movimientos-crear-tarea.png` | |
+| 17 | `movimientos-adjuntar.png` | |
+| 18 | `tareas-form-nueva.png` | |
+| 20 | `tareas-lista-filtros.png` | |
+| 21 | `tareas-completada.png` | |
+| 22 | `tareas-vinculada-causa.png` | |
+| 24 | `presupuestos-form-nuevo.png` | |
+| 25 | `presupuestos-selector-modalidad.png` | |
+| 26 | `presupuestos-form-completo.png` | |
+| 28 | `presupuestos-estado.png` | |
+| 29 | `presupuestos-clausulas.png` | |
+| 30 | `presupuestos-lista.png` | |
+| 31 | `transcripciones-lista.png` | |
+| 33 | `transcripciones-ficha.png` | |
+| 36 | `busqueda-command-palette.png` | |
+| 37 | `busqueda-resultados.png` | |
+| 38 | `busqueda-filtros.png` | |
+| 39 | `busqueda-resultado-seleccionado.png` | |
+| 40 | `configuracion-estudio.png` | |
+| 41 | `configuracion-datos-estudio.png` | |
+| 42 | `configuracion-equipo.png` | |
+| 43 | `configuracion-fueros.png` | |
+| 44 | `configuracion-preferencias.png` | |
+| 45 | `configuracion-integraciones.png` | |
+| 52 | `archivos-lista.png` | |
+| 56 | `causas-lista-datos.png` | |
+| 58 | `dashboard-completo.png` | |
+| 59 | `causas-historial-parcial.png` | |
+| 61 | `causas-filtro-estancadas.png` | |
+| 62 | `causas-filtro-plazos-semana.png` | |
+| 64 | `calendario-vista.png` | |
+| 66 | `copilot-chat.png` | |
+| 67 | `notificaciones-panel.png` | |
+| 70 | `equipo-ficha.png` | |
+| 71 | `calendario-vista-semanal.png` | |
+
+**Extras** (no en el doc original, pero útiles):
+
+| Archivo | Descripción |
+|---------|-------------|
+| `causas-tab-info.png` | Tab Info de causa |
+| `causas-tab-partes.png` | Tab Partes |
+| `causas-tab-equipo.png` | Tab Equipo |
+| `causas-tab-tareas.png` | Tab Tareas |
+| `causas-tab-notas.png` | Tab Notas |
+| `causas-tab-archivos.png` | Tab Archivos |
+| `causas-tab-presupuestos.png` | Tab Presupuestos |
+| `causas-tab-movimientos.png` | Tab Movimientos |
+| `equipo-miembro-ficha.png` | Ficha de un miembro del equipo |
+| `presupuestos-ficha.png` | Ficha de un presupuesto |
+
+### Pendientes ✗ (requieren captura manual)
+
+| # | Captura | Motivo |
+|---|---------|--------|
+| 2 | Email de verificación | Necesita email real o mockup |
+| 3 | Form onboarding datos estudio | Necesita cuenta nueva sin datos |
+| 4 | Pantalla vacía recién creada | Idem |
+| 19 | Selector responsable en tarea | Bug: dialog overlay bloquea click en combobox dentro de dialog |
+| 23 | Tarea completada en historial causa | Requiere datos específicos |
+| 27 | Vista previa PDF presupuesto | Necesita presupuesto con PDF generado |
+| 32 | Transcripción en curso (loading) | Necesita transcripción activa |
+| 34 | Transcripción vinculada como movimiento | Datos específicos |
+| 35 | Player de audio sincronizado | Datos específicos |
+| 46-49 | Google Calendar (4 capturas) | Requiere integración OAuth activa |
+| 50-53 | Google Drive (4 capturas) | Idem |
+| 54 | Planilla Excel mockup | Es un mockup externo, no de la app |
+| 55 | Config completada | Similar a #41 ya sacada |
+| 57 | Plazos y tareas cargados | Similar a dashboard (#58) ya sacada |
+| 60 | Valores IUS/JUS/UMA | Requiere visor/API específica |
+| 63 | Seguimiento de cobros | Feature específica |
+| 65 | PDF preview completo | Igual que #27 |
+| 68 | Transcriptor con player | Igual que #35 |
+| 69 | Presupuesto builder drag & drop | Requiere interacción específica |
+| 72 | Welcome modal / onboarding | Requiere trigger manual del tour |
