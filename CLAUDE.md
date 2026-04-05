@@ -21,8 +21,8 @@ Contenido se prepara en Notion/Claude Web, aqui solo estructura y MDX.
 
 1. Planificar antes de codear: definir estructura de navegacion. Implementar DESPUES de aprobacion.
 2. Verificar en navegador: resultado verificable en `localhost:3000` al final de cada feature.
-3. **Lint obligatorio**: correr `npm run lint` despues de terminar cambios y ANTES de commitear.
-4. **Lint en Windows**: si `npm run lint` falla por paths con espacios -> fallback: `npx eslint src` directo.
+3. **Lint obligatorio**: correr `pnpm lint` despues de terminar cambios y ANTES de commitear.
+4. **Lint en Windows**: si `pnpm lint` falla por paths con espacios -> fallback: `pnpm exec eslint src` directo.
 5. Referencias en `.planning/` — STATE.md es la memoria viva.
 6. **Tipos compartidos desde el primer uso**: si puede usarse en 2+ archivos -> crearlo en `src/lib/types/` desde el inicio. NUNCA redefinir.
 
@@ -57,7 +57,7 @@ Contenido se prepara en Notion/Claude Web, aqui solo estructura y MDX.
 
 ### TypeScript / ESLint
 
-- Despues de cambios -> `npm run lint`
+- Despues de cambios -> `pnpm lint`
 - ANTES de usar campo/prop -> verificar que existe en interface
 - SIEMPRE `===` y `!==` -> NUNCA `==` o `!=`
 - Evitar `as Type` sin motivo claro
